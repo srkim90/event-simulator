@@ -29,7 +29,7 @@ public class DisCreateCompanyReceiver extends BaseReceiver {
         DisCompanySyncModel resModel = disCreateCompanyProducer.sendDisCompanySyncMessage(model, syncModel, null);
 
         model.setAnswer("OK");
-        return sendResponseMessage(model);
+        return null;//sendResponseMessage(model);
     }
 
     @RabbitListener(queues = "create_company.dis.company.sync.queue")
@@ -37,7 +37,7 @@ public class DisCreateCompanyReceiver extends BaseReceiver {
         DisCompanySyncModel model = (DisCompanySyncModel) messageFactory.convertToObject(message, DisCompanySyncModel.class);
         String resModel = "OK";
         model.setAnswer(resModel);
-        return sendResponseMessage(model);
+        return  null;//sendResponseMessage(model);
     }
 
     @RabbitListener(queues = "create_company.dis.failover.queue")

@@ -6,7 +6,6 @@ plugins {
 
 group = 'com.test'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
 
 configurations {
 	compileOnly {
@@ -15,12 +14,18 @@ configurations {
 }
 
 repositories {
+
 	mavenCentral()
+	maven {
+		url 'http://nexus.terracetech.co.kr:8081/nexus/content/repositories/daou-repo'
+		allowInsecureProtocol true
+	}
 }
 
 
 dependencies {
-	implementation files('../amqp/target/amqp-1.0-SNAPSHOT.jar')
+	implementation 'com.daou.amqp:do-amqp:1.0.0'
+	//implementation files('../amqp/target/amqp-1.0-SNAPSHOT.jar')
 	implementation 'org.springframework.boot:spring-boot-starter-amqp'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
