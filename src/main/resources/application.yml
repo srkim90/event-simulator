@@ -1,0 +1,25 @@
+server:
+  port: 8081
+spring:
+  rabbitmq:
+    #host: 172.22.1.41
+    host: 172.22.1.138
+    username: dems
+    password: tndbrrlacl!@
+    publisher-confirm-type: correlated
+    listener:
+      simple:
+        acknowledge-mode: auto
+        concurrency: 1
+        max-concurrency: 10
+        retry:
+          max-interval: 10000ms
+          max-attempts: 3
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
+logging:
+  level:
+    root: info
+    com.daou.amqp : debug
+    com.test.doms : debug
