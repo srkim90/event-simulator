@@ -8,6 +8,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ARecordRegisterModel extends AmqMessage {
-    ArecordModel model;
+public class ARecordRegisterAnswerModel extends AmqMessage {
+    ArecordResModel model;
 }

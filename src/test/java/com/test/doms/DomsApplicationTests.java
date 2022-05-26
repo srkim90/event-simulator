@@ -15,8 +15,8 @@ class DomsApplicationTests {
 	@Test
 	void contextLoads() {
 		ARecordRegisterModel model = new ARecordRegisterModel();
-		model.setRequest(new ArecordModel("srkim.kr", "222.99.178.9"));
-		domsCreateCompanyProducer.sendArecordDnsRegistrationMessage(model, null);
+		model.setModel(new ArecordModel("srkim.kr", "222.99.178.9"));
+		domsCreateCompanyProducer.sendArecordDnsRegistrationMessage(model);
 	}
 
 }

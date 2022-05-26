@@ -3,6 +3,7 @@ package com.test.doms.configure;
 import com.daou.amqp.component.AmqMessageFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.test.common.builder.NodeBuilder;
 import org.springframework.amqp.rabbit.AsyncRabbitTemplate;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -15,8 +16,7 @@ public class DomsRabbitMQBaseConfig {
     @Bean
     public AmqMessageFactory amqMessageFactory() {
         ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
-        AmqMessageFactory amqMessageFactory = new AmqMessageFactory(objectMapper);
-        return amqMessageFactory;
+        return new AmqMessageFactory(objectMapper, NodeBuilder.nodeDoms());
     }
 
     @Bean

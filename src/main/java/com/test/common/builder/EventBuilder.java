@@ -27,8 +27,16 @@ public class EventBuilder {
         return AmqEventType.buildEvent("ARECORD_DNS_REGISTRATION", "dns.registration");
     }
 
+    public static AmqEventType arecordDnsRegistrationAnswer() {
+        return AmqEventType.buildEvent("ARECORD_DNS_REGISTRATION_ANSWER", "dns.registration.answer");
+    }
+
     public static AmqEventType doCreateCompany() {
         return AmqEventType.buildEvent("DO_CREATE_COMPANY", "do.create.company");
+    }
+
+    public static AmqEventType doCreateCompanyAnswer() {
+        return AmqEventType.buildEvent("DO_CREATE_COMPANY_ANSWER", "do.create.company.answer");
     }
 
     public static AmqEventType tmseCompanyRegistration() {

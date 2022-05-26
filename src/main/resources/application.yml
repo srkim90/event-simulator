@@ -2,8 +2,9 @@ server:
   port: 8081
 spring:
   rabbitmq:
+    host: 172.22.1.8
     #host: 172.22.1.41
-    host: 172.22.1.138
+    #host: 172.22.1.138
     username: dems
     password: tndbrrlacl!@
     publisher-confirm-type: correlated
@@ -15,6 +16,7 @@ spring:
         retry:
           max-interval: 10000ms
           max-attempts: 3
+          initial-interval: 2000
   jackson:
     serialization:
       INDENT_OUTPUT: true
