@@ -26,4 +26,8 @@ public class NodeBuilder {
     public static AmqNodeType nodeDo() {
         return AmqNodeType.buildNode("do");
     }
+
+    public static AmqNodeType nodeDoacc() {
+        return AmqNodeType.buildNode("doacc");
+    }
 }

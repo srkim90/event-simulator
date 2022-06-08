@@ -23,6 +23,13 @@ public class TestController {
         testService.disManualSyncRequest();
     }
 
+
+    @GetMapping("/api/test/doacc")
+    public String doacctest() {
+        testService.sendDoaccCompanyRegistrationRequest();
+        return "회사생성 : 경리회계 테스트 이벤트 발행 완료";
+    }
+
     @GetMapping("/api/test/dis-regi")
     public void disRegiTest() {
         testService.disRegistrationRequest();

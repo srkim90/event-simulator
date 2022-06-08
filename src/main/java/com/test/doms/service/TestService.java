@@ -3,10 +3,7 @@ package com.test.doms.service;
 import com.daou.amqp.component.AmqMessageFactory;
 import com.daou.amqp.model.AmqRoutingInfo;
 import com.test.common.model.dis.DisManualSyncRequestModel;
-import com.test.common.model.doms.ArecordModel;
-import com.test.common.model.doms.CompanyCreatorModel;
-import com.test.common.model.doms.DisModel;
-import com.test.common.model.doms.DoasLicenseModel;
+import com.test.common.model.doms.*;
 import com.test.common.model.individual.neworder.*;
 import com.test.doms.amq.producer.DomsCreateCompanyProducer;
 import com.test.doms.amq.producer.DomsManualCompanySyncProducer;
@@ -23,6 +20,11 @@ public class TestService {
     private final DomsCreateCompanyProducer domsCreateCompanyProducer;
     private final DomsManualCompanySyncProducer domsManualCompanySyncProducer;
     private final AmqMessageFactory amqMessageFactory;
+
+    public void sendDoaccCompanyRegistrationRequest() {
+        AddonModel model = new AddonModel(null, null);
+        domsCreateCompanyProducer.sendDoaccCompanyRegistrationRequest(model);
+    }
 
     public void disManualSyncRequest() {
         DisManualSyncRequestModel model = new DisManualSyncRequestModel();

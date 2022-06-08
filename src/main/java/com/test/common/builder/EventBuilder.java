@@ -3,6 +3,15 @@ package com.test.common.builder;
 import com.daou.amqp.type.AmqEventType;
 
 public class EventBuilder {
+
+    public static AmqEventType doaccCompanyRegistrationRequest() {
+        return AmqEventType.buildEvent("DOACC_COMPANY_REGISTRATION_REQUEST", "doacc.company.registration.request");
+    }
+
+    public static AmqEventType doaccCompanyRegistrationAnswer() {
+        return AmqEventType.buildEvent("DOACC_COMPANY_REGISTRATION_ANSWER", "doacc.company.registration.answer");
+    }
+
     public static AmqEventType disManualSyncRequest() {
         return AmqEventType.buildEvent("DIS_MANUAL_SYNC_REQUEST", "dis.manual.sync.request");
     }
@@ -59,9 +68,9 @@ public class EventBuilder {
         return AmqEventType.buildEvent("DO_CHANNEL_SYNC", "do.channel.sync");
     }
 
-    public static AmqEventType doaccCompanyRegistration() {
-        return AmqEventType.buildEvent("DOACC_COMPANY_REGISTRATION", "doacc.company.registration");
-    }
+//    public static AmqEventType doaccCompanyRegistration() {
+//        return AmqEventType.buildEvent("DOACC_COMPANY_REGISTRATION", "doacc.company.registration.rq");
+//    }
 
     public static AmqEventType doaccDisSync() {
         return AmqEventType.buildEvent("DOACC_DIS_SYNC", "doacc.dis.sync");

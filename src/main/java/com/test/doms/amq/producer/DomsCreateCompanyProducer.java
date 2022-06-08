@@ -9,9 +9,7 @@ import com.daou.amqp.model.AmqRoutingInfo;
 import com.daou.amqp.type.AmqNodeType;
 import com.test.common.builder.NodeBuilder;
 import com.test.common.model.dis.DisManualSyncRequestModel;
-import com.test.common.model.doms.AmqDisModel;
-import com.test.common.model.doms.CompanyCreatorModel;
-import com.test.common.model.doms.DisModel;
+import com.test.common.model.doms.*;
 import com.test.common.model.individual.neworder.*;
 import com.test.common.builder.EventBuilder;
 import com.test.common.builder.WorkflowBuilder;
@@ -30,6 +28,14 @@ public class DomsCreateCompanyProducer extends BaseProducer {
                                      AsyncRabbitTemplate asyncRabbitTemplate,
                                      AmqMessageFactory messageFactory) {
         super(rabbitTemplate, asyncRabbitTemplate, messageFactory, WorkflowBuilder.createCompany());
+    }
+
+    public void sendDoaccCompanyRegistrationRequest(AddonModel model) {
+        AmqDoaccRegistrationModel amqDisModel = AmqDoaccRegistrationModel.builder().model(model).build();
+        sendMessage(EventBuilder.doaccCompanyRegistrationRequest(),
+                amqDisModel,
+                null,
+                null);
     }
 
     public void sendDisCompanyRegistrationMessage(DisModel model) {
