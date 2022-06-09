@@ -1,6 +1,7 @@
 package com.test.doms.configure;
 
 import com.daou.amqp.base.BaseRabbitMQExchangeConfig;
+import com.daou.amqp.base.BaseWorkflowBuilder;
 import com.test.common.builder.WorkflowBuilder;
 import org.springframework.amqp.core.Exchange;
 import org.springframework.context.annotation.Bean;
@@ -10,6 +11,12 @@ import org.springframework.context.annotation.Configuration;
 /* 각 Workflow에 속하는 Exchange를 생성하는 설정 */
 @Configuration
 public class DomsRabbitMQExchangeConfig extends BaseRabbitMQExchangeConfig {
+
+    /* Exchange 생성 : ALARM */
+    @Bean
+    public Exchange alarmExchange() {
+        return createAlarmExchange(BaseWorkflowBuilder.AlarmWorkflow());
+    }
 
     /* Exchange 생성 : CREATE_COMPANY_TOPIC */
     @Bean

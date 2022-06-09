@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.AsyncRabbitTemplate;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.amqp.rabbit.annotation.RabbitListeners;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.rabbit.support.ListenerExecutionFailedException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ public class DoaccCreateCompanyReceiver extends BaseReceiver {
         super(rabbitTemplate, asyncRabbitTemplate, messageFactory, WorkflowBuilder.createCompany());
     }
 
-    @RabbitListener(queues = "create_company.doacc.company.registration.request.queue", errorHandler = "1")
+    @RabbitListener(queues = "create_company.doacc.company.registration.request.queue", errorHandler = "AmqErrorHandler")
     public void onDoaccCompanyRegistrationReceived(Message message) throws Exception {
         log.info("onDoaccCompanyRegistrationReceived");
         String aaa = null;
